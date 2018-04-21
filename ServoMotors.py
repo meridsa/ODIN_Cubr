@@ -35,3 +35,8 @@ class ServoControl:
     def read(self):
         """Function that reads signal from arduino"""
         return bool(GPIO.input(self.channel_in))
+
+    def start_sequence(self):
+        """Starts the start sequence by having an 19 pulse sent to arduino"""
+        self.pulse(19)
+

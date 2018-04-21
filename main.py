@@ -1,22 +1,25 @@
 from Hugin import record_cube
 from Mimir import find_solution
-from Sleipner import CubeMechanics
+import ServoMotors as SM
 
 
 def main():
     """The main function that solves the cube"""
+    arduino = SM.ServoControl()
 
     input('Ready to start?')
 
-    state_string = record_cube()
+    state_string = record_cube(arduino)
 
     solution_move_set = find_solution(state_string)
 
     print(solution_move_set)
 
-    #TODO: NEED TO BE ABLE TO INITIALIZE MOTORS/GRIPPERS AS PORTS
+    arduino.solve(solution_move_set)
 
-    # Initialize motors:
+    #TODO: Fix CV by hardcode
+    #TODO: Remove redundant code
+
 
 
 

@@ -2,27 +2,49 @@ import cv2 as cv
 import numpy as np
 import ServoMotors as SM
 
-def record_cube():
+def record_cube(servomotor):
     """Utilized in main to return state-string"""
 
-
-    front = runSG('c')
-    print(front)
-    check_input('yellow facing, orange up')
+    servomotor.start_sequence()
+    input('Hit enter when you have placed the cube in the correct position.')
+    while not servomotor.read():  # Wait till arduino says the cube is in correct position
+        pass
     up = runSG('c')
     print(up)
-    check_input('orange facing, yellow up')
-    back = runSG('c')
-    print(back)
-    check_input('white facing, red up')
+    servomotor.pulse(1)  # Tell arduino image has been processed and is ready for next
+
+    while not servomotor.read():
+        pass
     down = runSG('c')
     print(down)
-    check_input('blue facing, yellow up')
-    left = runSG('c')
-    print(left)
-    check_input('green facing, yellow up')
+    servomotor.pulse(1)
+
+    while not servomotor.read():
+        pass
+    front = runSG('c')
+    print(front)
+    servomotor.pulse(1)
+
+    while not servomotor.read():
+        pass
+    back = runSG('c')
+    print(back)
+    servomotor.pulse(1)
+
+    while not servomotor.read():
+        pass
     right = runSG('c')
     print(right)
+    servomotor.pulse(1)
+
+    while not servomotor.read():
+        pass
+    left = runSG('c')
+    print(left)
+    servomotor.pulse(1)
+
+    while not servomotor.read():  # Final check so RasPi continues when the device is in standard position
+        pass
 
     cube = [up, right, front, down, left, back]
 
