@@ -1,11 +1,11 @@
 import cv2 as cv
 import numpy as np
-
+import ServoMotors as SM
 
 def record_cube():
     """Utilized in main to return state-string"""
-    # On startup grab 1 side
-    check_input("Press enter when red is facing camera with yellow up! To exit at any point, enter 'q'.")
+
+
     front = runSG('c')
     print(front)
     check_input('yellow facing, orange up')

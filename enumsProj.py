@@ -43,3 +43,23 @@ class SwitchStates(IntEnum):
     LRR = 1     # Left, Right Rotators
     UDM = 2     # Up, Down Movers
     UDR = 3     # Up, Down Rotators
+
+class Moves(IntEnum):
+    L1 = 1
+    L2 = 2
+    L3 = 3
+    R1 = 4
+    R2 = 5
+    R3 = 6
+    U1 = 7
+    U2 = 8
+    U3 = 9
+    D1 = 10
+    D2 = 11
+    D3 = 12
+    F1 = 13
+    F2 = 14
+    F3 = 15
+    B1 = 16
+    B2 = 17
+    B3 = 18

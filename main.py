@@ -5,6 +5,9 @@ from Sleipner import CubeMechanics
 
 def main():
     """The main function that solves the cube"""
+
+    input('Ready to start?')
+
     state_string = record_cube()
 
     solution_move_set = find_solution(state_string)
